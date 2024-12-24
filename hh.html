@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Shuffle Pictures</title>
+    <style>
+        body 
+        {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            
+        }
+        .image-container 
+        {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0; /* Hide images by default */
+            animation: shuffle 12s infinite;
+        }
+        .image-container img:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .image-container img:nth-child(2) {
+            animation-delay: 3s;
+        }
+        .image-container img:nth-child(3) {
+            animation-delay: 6s;
+        }
+        .image-container img:nth-child(4) {
+            animation-delay: 9s;
+        }
+        @keyframes shuffle {
+            0%, 25% {
+                opacity: 1; /* Show the image */
+                z-index: 1;
+            }
+            26%, 100% {
+                opacity: 0; /* Hide the image */
+                z-index: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="orientatio_pic.jpg" alt="Image 1">
+        <img src="entrance_pic.jpg" alt="Image 2">
+        <img src="flowerroad_pic.jpg" alt="Image 3">
+        <img src="fot_pic.jpg" alt="Image 4">
+    </div>
+</body>
+</html>
